@@ -1,4 +1,4 @@
-const socket = io("https://chat-app-2x9h.onrender.com:10000");
+const socket = io("https://chat-app-2x9h.onrender.com");
 
 // ********************
 // CHAT SYSTEM
