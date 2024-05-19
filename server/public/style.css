@@ -71,7 +71,7 @@ html {
 }
 
 body {
-  background-image: url("../img/background-img.jpg");
+  background: linear-gradient(135deg, #1f8ff2, #ff6bb5);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;

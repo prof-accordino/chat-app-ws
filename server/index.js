@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 10000;
 const ADMIN = "Admin";
 
 const app = express();
@@ -30,7 +30,11 @@ const io = new Server(expressServer, {
     origin:
       process.env.NODE_ENV === "production"
         ? false
-        : ["htpp//localhost:5500", "http://127.0.0.1:5500"],
+        : [
+            "http://localhost:5500",
+            "http://127.0.0.1:5500",
+            "https://chat-app-2x9h.onrender.com",
+          ],
   },
 });
 
