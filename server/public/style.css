@@ -1,43 +1,369 @@
+/*
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 
+
+- Font weights
+Default: 400
+Bold: 600
+
+- Line heights
+Default: 1
+
+- Letter spacing
+0.5px
+
+--- 02 COLORS
+
+- Primary: 
+#111928
+
+- Secondary:
+#1f8ff2
+#ff6bb5
+
+-Shades:
+#359af3 (lighter #1f8ff2)
+
+- Background:
+Transparency: rgba(17, 25, 40, 0.5);
+Solid: rgba(17, 25, 40, 0.75);
+
+- Lines:
+rgba(255, 255, 255, 0.125)
+#dddddd35
+
+- Text
+#fff
+
+--- 05 SHADOWS
+
+0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+--- 06 BORDER-RADIUS
+
+Small: 5px
+Default: 10px
+Medium: 12px
+
+--- 07 WHITESPACE
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-size: 1rem;
+  font-family: "Avenir";
 }
 
-.form {
+html {
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  background-image: url("../img/background-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  margin: 24px 12px;
-  gap: 24px;
+  justify-content: center;
 }
 
-.msg-input {
-  background-color: #d0ebff;
-  color: #444;
-  border-radius: 5px;
-  width: 450px;
-  padding: 24px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  font-size: 18px;
-  border: none;
+.main-container {
+  background-color: rgba(17, 25, 40, 0.75);
+  backdrop-filter: blur(18px) saturate(180%);
+  height: 90vh;
+  width: 90vw;
+  padding: 0 3.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+}
+
+/* ----- GENERAL ----- */
+
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #fff;
 }
 
 .btn {
-  background-color: #e7f5ff;
-  border-radius: 5px;
-  width: 450px;
-  padding: 8px 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  font-size: 14px;
+  background-color: #1f8ff2;
+  color: #fff;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s;
 }
 
 .btn:hover {
-  background-color: #d0ebff;
+  background-color: #359af3;
+}
+
+/* ----- JOIN FORM ----- */
+
+.join-form {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 1.2rem auto;
+}
+
+.join-input-bar {
+  flex: 1;
+  background-color: rgba(17, 25, 40, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  border-radius: 10px;
+  padding: 1.2rem 2.4rem;
+}
+
+.join-input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.join-btn {
+  padding: 1.2rem 2.4rem;
+  font-size: 1.8rem;
+}
+
+/* ----- APP ----- */
+
+.app-container {
+  width: 100%;
+  margin: 1.2rem auto;
+  padding: 0;
+  display: flex;
+  overflow: auto;
+  flex-grow: 1;
+}
+
+/* *************** */
+/* ----- APP ----- */
+/* ----- LISTS ----- */
+
+.lists-container {
+  flex: 1;
+  border-right: 1px solid rgba(255, 255, 255, 0.125);
+  overflow: hidden;
+  height: 100%;
+}
+
+.list-title {
+  display: inline-block;
+  background-color: rgba(17, 25, 40, 0.75);
+  text-align: center;
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.list-container {
+  color: #fff;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-right: 1.2rem;
+  max-height: 50%;
+}
+
+.lists-container ul li {
+  font-size: 1.4rem;
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.4rem;
+  overflow: auto;
+}
+
+/* ----- APP ----- */
+/* ----- LISTS ----- */
+/* ----- USERS ----- */
+
+.list-container--users {
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.users-list--users {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.users-list--users span {
+  background-color: rgba(31, 143, 242, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  width: 3.6rem;
+  height: 3.6rem;
+}
+
+/* ----- APP ----- */
+/* ----- LISTS ----- */
+/* ----- ROOMS ----- */
+
+.list-container--rooms {
+  padding-top: 1.2rem;
+}
+
+.room-list li {
+  background-color: rgba(255, 255, 255, 0.125);
+  border-radius: 5px;
+}
+
+.room-list li:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.room-list li button {
+  background: transparent;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  width: 100%;
+  padding: 0.4rem 0;
+}
+
+/* *************** */
+/* ----- APP ----- */
+/* ----- CHAT ----- */
+
+.chat-container {
+  flex: 4;
+  padding-left: 3.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----- APP ----- */
+/* ----- CHAT ----- */
+/* ----- DISPLAY ----- */
+
+.chat-display {
+  list-style-type: none;
+  overflow: auto;
+}
+
+.post {
+  background-color: rgba(255, 255, 255, 0.125);
+  border-radius: 10px;
+  margin: 0.5rem;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.post--right,
+.post--left {
+  max-width: 60%;
+}
+
+.post--right {
+  margin-left: auto;
+}
+
+.post__header {
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post__header--user {
+  background-color: rgba(31, 143, 242, 0.5);
+}
+
+.post__header--reply {
+  background-color: rgba(255, 107, 181, 0.5);
+}
+
+.post__header--name {
+  font-weight: 600;
+}
+
+.post__header--name,
+.post__header--time {
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+}
+
+.post__text {
+  margin-top: 5px;
+  font-size: 1.6rem;
+  color: #fff;
+  padding: 0.8rem;
+}
+
+.post__text--admin {
+  margin-top: 0;
+  text-align: center;
+}
+
+.activity {
+  font-style: italic;
+}
+
+/* ----- APP ----- */
+/* ----- CHAT ----- */
+/* ----- KEYBOARD ----- */
+
+.msg-form {
+  padding: 1.2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  gap: 0.4rem;
+  border-top: 1px solid #dddddd35;
+}
+
+.msg-input {
+  flex: 1;
+  background-color: rgba(17, 25, 40, 0.5);
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 1.6rem;
+  border-radius: 10px;
+  font-size: 1.6rem;
+}
+
+.msg-btn {
+  padding: 1.2rem 2.4rem;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

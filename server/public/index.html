@@ -3,22 +3,94 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat App with Websocket</title>
+    <title>Chat App</title>
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Socket IO -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"
       integrity="sha512-11t8Q+vY9JlCrr+PveZKTYJq8n7O09Y5X/pk/aMd3vJugSvu4xOunGEUzaADqL3I8cZKE/pBwwCfXzDkRJh2sQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
+    <!-- Ionicons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
     <script defer src="app.js"></script>
   </head>
   <body>
-    <form class="form">
-      <input type="text" placeholder="Your message" class="msg-input" />
-      <button class="btn">Send</button>
-    </form>
-    <ul class="list"></ul>
-    <p class="activity"></p>
+    <div class="main-container">
+      <form class="join-form">
+        <label class="join-input-bar">
+          <ion-icon class="icon" name="person-outline"></ion-icon>
+          <input
+            type="text"
+            id="name"
+            class="join-input"
+            maxlength="20"
+            placeholder="Your name"
+            required
+          />
+        </label>
+
+        <label class="join-input-bar">
+          <ion-icon class="icon" name="people-outline"></ion-icon>
+          <input
+            type="text"
+            id="room"
+            class="join-input"
+            maxlength="16"
+            placeholder="Room name"
+            required
+          />
+        </label>
+
+        <button type="submit" id="join" class="join-btn btn">Join</button>
+      </form>
+      <div class="app-container">
+        <div class="lists-container">
+          <!-- LIST OF THE USERS IN THE ROOM -->
+          <div class="list-container list-container--users">
+            <p class="list-title" id="list-title-user">
+              You are not in any room!
+            </p>
+            <ul class="users-list list"></ul>
+          </div>
+
+          <!-- LIST OF THE ROOM IN THE SERVER -->
+          <div class="list-container list-container--rooms">
+            <p class="list-title">Active rooms:</p>
+            <ul class="room-list list"></ul>
+          </div>
+        </div>
+
+        <div class="chat-container">
+          <ul class="chat-display"></ul>
+
+          <p class="activity"></p>
+
+          <form class="msg-form">
+            <input
+              type="text"
+              id="message"
+              placeholder="Your message"
+              class="msg-input"
+              required
+            />
+            <button type="submit" class="msg-btn btn">
+              <ion-icon class="icon" name="send"></ion-icon>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
