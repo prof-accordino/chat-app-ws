@@ -145,3 +145,5 @@ Associa e ascolta le connessioni sulla porta specificata e, facoltativamente, su
 2. Implementazione della libreria Socket.io al posto di WebSocket
 3. Aggiornamento dell'applicazione con il framework Express
 4. Creazione di una nuova interfaccia e aggiunta di utenti e stanze
+
+---

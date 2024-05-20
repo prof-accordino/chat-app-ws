@@ -1,0 +1,185 @@
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+
+@media (max-width: 59em) {
+  .main-container {
+    padding: 0 2.4rem;
+  }
+
+  .icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  /* ----- JOIN FORM ----- */
+
+  .join-form {
+    flex-flow: column nowrap;
+    gap: 0.8rem;
+  }
+
+  .join-input {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .join-btn,
+  .join-input-bar {
+    padding: 0.8rem 1.8rem;
+    font-size: 1.4rem;
+  }
+
+  /* ----- APP ----- */
+  .app-container {
+    margin: 0.4rem auto;
+  }
+
+  /* ----- APP ----- */
+  /* ----- LISTS ----- */
+
+  .list-title {
+    padding: 0.4rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.2rem;
+  }
+
+  .list-container ul li {
+    font-size: 1.2rem;
+  }
+
+  /* ----- APP ----- */
+  /* ----- LISTS ----- */
+  /* ----- USERS ----- */
+
+  .list-container--users {
+    padding-bottom: 0.8rem;
+  }
+
+  .users-list--users {
+    gap: 0.8rem;
+  }
+
+  .users-list--users span {
+    font-size: 1.4rem;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  /* ----- APP ----- */
+  /* ----- LISTS ----- */
+  /* ----- ROOMS ----- */
+
+  .list-container--rooms {
+    padding-top: 0.8rem;
+  }
+
+  /* ----- APP ----- */
+  /* ----- CHAT ----- */
+
+  .chat-container {
+    flex: 2;
+    padding-left: 2.4rem;
+  }
+
+  /* ----- APP ----- */
+  /* ----- CHAT ----- */
+  /* ----- DISPLAY ----- */
+
+  .post__header--name,
+  .post__header--time {
+    font-size: 1rem;
+  }
+
+  .post__text {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* ----- APP ----- */
+  /* ----- CHAT ----- */
+  /* ----- INPUT ----- */
+
+  .msg-form {
+    padding: 0.8rem;
+  }
+
+  .msg-input {
+    padding: 1.2rem;
+    font-size: 1.2rem;
+  }
+
+  .msg-btn {
+    padding: 0.8rem 1.6rem;
+  }
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 34em) {
+  .main-container {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+    border: none;
+  }
+
+  /* ----- APP ----- */
+
+  .app-container {
+    flex: 5;
+    flex-flow: column nowrap;
+  }
+
+  /* ----- APP ----- */
+  /* ----- LISTS ----- */
+
+  .lists-container {
+    border-right: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1.4rem;
+    overflow-y: auto;
+  }
+
+  .list-container {
+    width: 50%;
+    max-height: 100%;
+    margin-right: 0;
+  }
+
+  .list {
+    max-height: 100%;
+    overflow-y: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.125);
+  }
+
+  .chat-container {
+    flex: 3;
+    padding-left: 0;
+    overflow-y: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.125);
+  }
+
+  /* ----- APP ----- */
+  /* ----- LISTS ----- */
+  /* ----- USERS ----- */
+
+  .list-container--users {
+    border: none;
+  }
+
+  .users-list {
+    border-bottom: none;
+    padding: 0 1.6rem;
+  }
+
+  /* ----- APP ----- */
+  /* ----- LISTS ----- */
+  /* ----- ROOMS ----- */
+
+  .list-container--rooms {
+    padding-top: 0;
+  }
+}

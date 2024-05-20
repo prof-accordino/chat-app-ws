@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 3500;
-const ADMIN = "Admin";
+const ADMIN = "Administrator-of-the-chat";
 
 const app = express();
 
@@ -23,6 +23,28 @@ const UsersState = {
     this.users = newUsersArray;
   },
 };
+
+// ********************
+// HELP FUNCTIONS
+// ********************
+
+// Get a random color for the user
+function getRandomColor() {
+  const colors = [
+    "rgba(255, 87, 51, 0.5)", // Vivace Red
+    "rgba(51, 255, 87, 0.5)", // Vivace Green
+    "rgba(51, 87, 255, 0.5)", // Vivace Blue
+    "rgba(255, 107, 181, 0.5)", // Vivace Pink
+    "rgba(31, 143, 242, 0.5)", // Vivace Aqua
+    "rgba(255, 51, 240, 0.5)", // Vivace Magenta
+    "rgba(255, 140, 51, 0.5)", // Vivace Orange
+    "rgba(140, 51, 255, 0.5)", // Vivace Purple
+    "rgba(255, 215, 0, 0.5)", // Vivace Gold
+    "rgba(0, 255, 0, 0.5)", // Vivace Lime
+  ];
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return colors[randomIndex];
+}
 
 const io = new Server(expressServer, {
   // CORS: ( Cross-Origin Resource Sharing ), It's a security feature implemented by web browsers that restricts web applications hosted on one domain from making requests to another domain.
@@ -42,6 +64,10 @@ io.on("connection", (socket) => {
   // Upon connection - only to user
   console.log(`User ${socket.id} connected`);
   socket.emit("message", buildMsg(ADMIN, "Welcome to Chat App"));
+
+  io.emit("roomList", {
+    rooms: getAllActiveRooms(),
+  });
 
   socket.on("enterRoom", ({ name, room }) => {
     //leave previous room
@@ -130,6 +156,7 @@ io.on("connection", (socket) => {
 });
 
 function buildMsg(name, text) {
+  const user = getUserByName(name);
   return {
     name,
     text,
@@ -138,12 +165,14 @@ function buildMsg(name, text) {
       minute: "numeric",
       second: "numeric",
     }).format(new Date()),
+    color: user ? user.color || null : null,
   };
 }
 
 //Users functions
 function activateUser(id, name, room) {
-  const user = { id, name, room };
+  const color = getRandomColor();
+  const user = { id, name, room, color };
   UsersState.setUsers([
     ...UsersState.users.filter((user) => user.id !== id),
     user,
@@ -157,6 +186,10 @@ function userLeavesApp(id) {
 
 function getUser(id) {
   return UsersState.users.find((user) => user.id === id);
+}
+
+function getUserByName(name) {
+  return UsersState.users.find((user) => user.name === name);
 }
 
 function getUsersInRoom(room) {

@@ -1,4 +1,8 @@
-const socket = io("https://chat-app-2x9h.onrender.com");
+// !!! URL of the server online, comment if you use locally
+//const socket = io("https://chat-app-2x9h.onrender.com");
+
+// !!! Uncomment to use locally the server
+const socket = io("ws://localhost:3500");
 
 // ********************
 // CHAT SYSTEM
@@ -42,17 +46,18 @@ msgInputEl.addEventListener("keypress", () => {
 
 socket.on("message", (data) => {
   activityEl.textContent = "";
-  const { name, text, time } = data;
+  const { name, text, time, color } = data;
   const li = document.createElement("li");
   li.className = "post";
-  if (name !== nameInputEl.value && name !== "Admin")
+  if (name !== nameInputEl.value && name !== "Administrator-of-the-chat")
     li.className = "post post--left";
-  if (name === nameInputEl.value && name !== "Admin")
+  if (name === nameInputEl.value && name !== "Administrator-of-the-chat")
     li.className = "post post--right";
-  if (name !== "Admin") {
-    li.innerHTML = `<div class="post__header ${
+  if (name !== "Administrator-of-the-chat") {
+    li.innerHTML = `
+    <div class="post__header ${
       name === nameInputEl.value ? "post__header--user" : "post__header--reply"
-    }">
+    }" ${color ? `style="--color: ${color};"` : ""}>
     <span class="post__header--name">${name}</span>
     <span class="post__header--time">${time}</span>
     </div>
@@ -73,6 +78,7 @@ socket.on("activity", (name) => {
   clearTimeout = setTimeout(() => {
     activityEl.textContent = "";
   }, 3000);
+  chatDisplayEl.scrollTop = chatDisplayEl.scrollHeight;
 });
 
 socket.on("userList", ({ users }) => {
@@ -90,8 +96,11 @@ function showUsers(users) {
     Users in ${roomInputEl.value}:
     `;
     users.forEach((user) => {
+      console.log(user);
       usersListEl.innerHTML += `<li class="users-list--users">
-      <span>${user.name.charAt(0).toUpperCase()}</span>${user.name}</li>`;
+      <span ${user.color ? `style="--color: ${user.color};"` : ""}">${user.name
+        .charAt(0)
+        .toUpperCase()}</span>${user.name}</li>`;
     });
   }
 }
@@ -107,8 +116,10 @@ function showRooms(rooms) {
 
 // ********************
 // HELP FUNCTIONS
+// ********************
 
 // Automatically write the room name
 function setRoomName(el) {
   roomInputEl.value = el.textContent;
+  roomInputEl.focus();
 }
