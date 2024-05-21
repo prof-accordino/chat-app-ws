@@ -78,6 +78,7 @@ Node.js è comunemente utilizzato per la creazione di server web, API e applicaz
 Inoltre, Node.js dispone di un vasto ecosistema di librerie e framework, rendendolo una scelta popolare per la costruzione di moderne applicazioni ad alta intensità di dati.
 
 ### COS'È UN SOCKET?
+
 Un socket è un endpoint di comunicazione che consente a processi o dispositivi diversi di comunicare tra loro attraverso una rete.
 Serve come interfaccia di connessione, consentendo la trasmissione di dati tra un client e un server in un ambiente di rete.
 I socket sono identificati da combinazioni uniche di indirizzi IP e numeri di porta, facilitando lo scambio di dati attraverso vari protocolli di rete come TCP (Transmission Control Protocol) o UDP (User Datagram Protocol).

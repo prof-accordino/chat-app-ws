@@ -157,6 +157,7 @@ io.on("connection", (socket) => {
 
 function buildMsg(name, text) {
   const user = getUserByName(name);
+  const timeZone = "Europe/Rome";
   return {
     name,
     text,
@@ -164,6 +165,7 @@ function buildMsg(name, text) {
       hour: "numeric",
       minute: "numeric",
       second: "numeric",
+      timeZone,
     }).format(new Date()),
     color: user ? user.color || null : null,
   };
