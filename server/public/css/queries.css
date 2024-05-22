@@ -123,6 +123,7 @@
     width: 100vw;
     border-radius: 0;
     border: none;
+    overflow-y: auto;
   }
 
   /* ----- APP ----- */
@@ -130,6 +131,7 @@
   .app-container {
     flex: 5;
     flex-flow: column nowrap;
+    margin-bottom: 6.4rem;
   }
 
   /* ----- APP ----- */
@@ -181,5 +183,17 @@
 
   .list-container--rooms {
     padding-top: 0;
+  }
+
+  /* ----- APP ----- */
+  /* ----- CHAT ----- */
+  /* ----- INPUT ----- */
+
+  .msg-form {
+    width: 100%;
+    padding: 1.2rem 2.4rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
 }
