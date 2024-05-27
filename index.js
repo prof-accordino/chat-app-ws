@@ -13,7 +13,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
 
-const expressServer = app.listen(PORT, () => {
+const expressServer = app.listen(PORT, '0.0.0.0', () => {
   console.log(`Listening on port: ${PORT}`);
 });
 
@@ -47,22 +47,16 @@ function getRandomColor() {
 }
 
 const io = new Server(expressServer, {
-  // CORS: ( Cross-Origin Resource Sharing ), It's a security feature implemented by web browsers that restricts web applications hosted on one domain from making requests to another domain.
   cors: {
-    origin:
-      process.env.NODE_ENV === "production"
-        ? false
-        : [
-            "http://localhost:5500",
-            "http://127.0.0.1:5500",
-            "https://chat-app-2x9h.onrender.com",
-          ],
+    origin: true, // Permette richieste da qualsiasi origine
+    methods: ["GET", "POST"], // Puoi specificare i metodi HTTP consentiti
+    allowedHeaders: ["Authorization"], // Puoi specificare gli headers consentiti
   },
 });
 
 io.on("connection", (socket) => {
   // Upon connection - only to user
-  console.log(`User ${socket.id} connected`);
+  console.log(`User ${socket.id} connected with IP address ${socket.handshake.address}`);
   socket.emit("message", buildMsg(ADMIN, "Welcome to Chat App"));
 
   io.emit("roomList", {

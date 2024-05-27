@@ -1,8 +1,8 @@
 // !!! URL of the server online, comment if you use locally
-const socket = io("https://chat-app-2x9h.onrender.com");
+//const socket = io("https://chat-app-2x9h.onrender.com");
 
 // !!! Uncomment to use locally the server
-//const socket = io("ws://localhost:3500");
+const socket = io("ws://localhost:3500");
 
 // ********************
 // CHAT SYSTEM
